@@ -33,24 +33,25 @@
       margin-top: 15px;
       opacity: 0.8;
     }
+
+    /* moved from inside the <a> (this was the only illegal part) */
+    .shadowfilter {
+      -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+    }
+
+    .epstein {
+      width: 500px;
+    }
   </style>
 </head>
 <body>
 
 <a href="https://0930120a.index-education.net/pronote/eleve.html?identifiant=4rKeQr5WtDKskbPk" class="container">
-      <style>
-        .shadowfilter {
-        -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
-         filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
-    }
-
-    .epstein {
-        width: 500px;
-    }
-    </style>
   <img src="sahur.webp" alt="epstein blud" class="shadowfilter epstein"/>
   <p>Click to continue</p>
 </a>
+
 <script src="shake.js"></script>
 <script src="snow.js"></script>
 </body>
