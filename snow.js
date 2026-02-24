@@ -21,7 +21,10 @@ function createSnowflake() {
   snow.style.color = "white";          // ✅ White color
   snow.style.textShadow = "0 0 2px white"; // optional subtle glow
 
-  
+  flake.addEventListener('click', () => {
+  const sound = new Audio('snow-sound.mp3');
+  sound.play();
+});
   
   snowContainer.appendChild(snow);
 
@@ -31,7 +34,7 @@ function createSnowflake() {
   function fall() {
     y += speed;
     snow.style.top = y + "px";
-    snow.style.transform = rotate(${y * 2}deg);
+    snow.style.transform = `rotate(${y * 2}deg)`;
 
     if (y < window.innerHeight) {
       requestAnimationFrame(fall);
