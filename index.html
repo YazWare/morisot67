@@ -40,6 +40,18 @@
     .epstein {
       width: 250px;
     }
+    
+    .epstein {
+  width: 500px;
+  animation: rgbGlow 2s linear infinite;
+}
+
+@keyframes rgbGlow {
+  0%   { filter: drop-shadow(0 0 20px red); }
+  33%  { filter: drop-shadow(0 0 20px lime); }
+  66%  { filter: drop-shadow(0 0 20px blue); }
+  100% { filter: drop-shadow(0 0 20px red); }
+}
   </style>
 </head>
 <body>
