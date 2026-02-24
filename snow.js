@@ -1,5 +1,7 @@
 // snow.js
 const snowContainer = document.createElement("div");
+const sammy = document.getElementById('sammy');
+
 snowContainer.style.position = "fixed";
 snowContainer.style.top = "0";
 snowContainer.style.left = "0";
@@ -41,3 +43,9 @@ function createSnowflake() {
 }
 
 setInterval(createSnowflake, 500);
+
+snowContainer.forEach(flake => {
+  flake.addEventListener('click', () => {
+    sammy.play();
+  });
+});
