@@ -3,6 +3,8 @@
 <head>
   <title>Epstein Portal</title>
   <link rel="icon" href="favicon.webp" type="image/webp">
+
+  <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Epstein Portal">
   <meta property="og:description" content="Jeffrini Epstini">
   <meta property="og:image" content="https://morisot67.com/sahur.webp">
@@ -79,7 +81,8 @@
     Your browser does not support the audio element.
   </audio>
 
-  <button id="musicBtn">▶</button>
+  <!-- Music Play/Pause Button -->
+  <button id="musicBtn">⏸</button>
 
   <!-- Main Portal Link -->
   <a href="https://0930120a.index-education.net/pronote/eleve.html?identifiant=4rKeQr5WtDKskbPk" class="container">
@@ -87,9 +90,10 @@
     <p>Click to continue</p>
   </a>
 
-  <!-- JS for Shake / Snow / Music -->
+  <!-- Shake.js -->
   <script src="shake.js"></script>
 
+  <!-- Snow and Music JS -->
   <script>
     // White "67" Snow
     const snowContainer = document.createElement("div");
@@ -133,13 +137,21 @@
       fall();
     }
 
-    // Halved snow frequency (half as many snowflakes)
+    // Halved snow frequency
     setInterval(createSnowflake, 422); // was 211 before
 
     // Music Button
     const music = document.getElementById("bgmusic");
     const btn = document.getElementById("musicBtn");
 
+    // Try to autoplay music
+    music.volume = 0.3;
+    music.play().catch(() => {
+      console.log("Autoplay blocked; click button to start music");
+      btn.textContent = "▶";
+    });
+
+    // Button toggles play/pause
     btn.addEventListener("click", () => {
       if (music.paused) {
         music.play();
@@ -151,6 +163,5 @@
     });
   </script>
 
-  <script src="snow.js"></script>
 </body>
 </html>
