@@ -17,6 +17,10 @@ function createSnowflake() {
   snow.style.left = Math.random() * window.innerWidth + "px";
   snow.style.fontSize = Math.random() * 24 + 12 + "px";
   snow.style.opacity = Math.random();
+
+  // 🔥 RGB GLOW ANIMATION
+  snow.style.animation = "rgbGlow 1.5s linear infinite";
+
   snowContainer.appendChild(snow);
 
   let y = -30;
@@ -25,10 +29,27 @@ function createSnowflake() {
   function fall() {
     y += speed;
     snow.style.top = y + "px";
-    if (y < window.innerHeight) requestAnimationFrame(fall);
-    else snow.remove();
+    snow.style.transform = `rotate(${y * 2}deg)`;
+
+    if (y < window.innerHeight) {
+      requestAnimationFrame(fall);
+    } else {
+      snow.remove();
+    }
   }
+
   fall();
 }
 
 setInterval(createSnowflake, 211);
+
+// 🔥 Inject RGB keyframes directly from JS
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes rgbGlow {
+  0%   { text-shadow: 0 0 10px red, 0 0 20px red; }
+  33%  { text-shadow: 0 0 10px lime, 0 0 20px lime; }
+  66%  { text-shadow: 0 0 10px blue, 0 0 20px blue; }
+  100% { text-shadow: 0 0 10px red, 0 0 20px red; }
+}`;
+document.head.appendChild(style);
