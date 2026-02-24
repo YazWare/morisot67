@@ -35,9 +35,6 @@
     opacity: 1;
     transition: opacity .8s ease;
 }
-    #overlay.fade-out {
-    opacity: 0;
-}
 
     #overlay-text {
     font-family: 'Arial';
@@ -50,6 +47,7 @@
 }
     #overlay.fade-out {
   opacity: 0;
+  pointer-events: none;
   transition: opacity .8s ease;
 }
     img {
