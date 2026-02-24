@@ -24,5 +24,4 @@ overlay.addEventListener("click", () => {
 ;
 
 
-  setTimeout(() => overlay.remove(), 800); 
-});
+  
