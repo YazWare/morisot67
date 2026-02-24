@@ -17,9 +17,8 @@ function createSnowflake() {
   snow.style.left = Math.random() * window.innerWidth + "px";
   snow.style.fontSize = Math.random() * 24 + 12 + "px";
   snow.style.opacity = Math.random();
-
-  // 🔥 RGB GLOW ANIMATION
-  snow.style.animation = "rgbTextGlow 1.5s linear infinite";
+  snow.style.color = "white";          // ✅ White color
+  snow.style.textShadow = "0 0 2px white"; // optional subtle glow
 
   snowContainer.appendChild(snow);
 
@@ -41,15 +40,4 @@ function createSnowflake() {
   fall();
 }
 
-setInterval(createSnowflake, 211);
-
-// 🔥 Inject RGB keyframes directly from JS
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes rgbTextGlow {
-  0%   { text-shadow: 0 0 10px red, 0 0 20px red; }
-  33%  { text-shadow: 0 0 10px lime, 0 0 20px lime; }
-  66%  { text-shadow: 0 0 10px blue, 0 0 20px blue; }
-  100% { text-shadow: 0 0 10px red, 0 0 20px red; }
-}`;
-document.head.appendChild(style);
+setInterval(createSnowflake, 500);
