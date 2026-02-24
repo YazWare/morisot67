@@ -144,18 +144,21 @@
 const music = document.getElementById("bgmusic");
 const btn = document.getElementById("musicBtn");
 
-// Attempt to autoplay on page load
-music.volume = 0.3;
+// Initially button shows pause icon for style
+btn.textContent = "⏸";
 
-music.play().then(() => {
-  // Autoplay succeeded
-  btn.textContent = "⏸";
-}).catch(() => {
-  // Autoplay blocked, must click to play
-  btn.textContent = "▶";
-});
+// When user clicks anywhere or button, start music if not started
+function startMusicOnce() {
+  if (music.paused) {
+    music.play().catch(() => console.log("User interaction required to play music"));
+  }
+  document.removeEventListener("click", startMusicOnce);
+}
 
-// Toggle play/pause on button click
+// Listen for first click anywhere
+document.addEventListener("click", startMusicOnce);
+
+// Toggle play/pause with button
 btn.addEventListener("click", () => {
   if (music.paused) {
     music.play();
