@@ -48,8 +48,3 @@ function createSnowflake() {
 
 setInterval(createSnowflake, 500);
 
-snowContainer.forEach(flake => {
-  flake.addEventListener('click', () => {
-    sammy.play();
-  });
-});
