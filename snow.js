@@ -11,7 +11,7 @@ document.body.appendChild(snowContainer);
 
 function createSnowflake() {
   const snow = document.createElement("div");
-  snow.textContent = "❄";
+  snow.textContent = "67";
   snow.style.position = "absolute";
   snow.style.top = "-2em";
   snow.style.left = Math.random() * window.innerWidth + "px";
