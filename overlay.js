@@ -21,3 +21,8 @@ overlay.addEventListener("click", () => {
         overlay.style.display = "none";
     }, 800);
 });
+;
+
+
+  setTimeout(() => overlay.remove(), 800); 
+});
