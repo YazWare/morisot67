@@ -1,5 +1,14 @@
-// Your audio element
-const sammy = document.getElementById('sammy'); // <audio id="sammy" src="snow-sound.mp3"></audio>
+const snowContainer = document.createElement("div");
+const sammy = document.getElementById('sammy');
+
+snowContainer.style.position = "fixed";
+snowContainer.style.top = "0";
+snowContainer.style.left = "0";
+snowContainer.style.width = "100%";
+snowContainer.style.height = "100%";
+snowContainer.style.pointerEvents = "none";
+snowContainer.style.zIndex = "9999";
+document.body.appendChild(snowContainer);
 
 function createSnowflake() {
   const snow = document.createElement("div");
@@ -9,17 +18,14 @@ function createSnowflake() {
   snow.style.left = Math.random() * window.innerWidth + "px";
   snow.style.fontSize = Math.random() * 24 + 12 + "px";
   snow.style.opacity = Math.random();
-  snow.style.color = "white";
-  snow.style.textShadow = "0 0 2px white";
+  snow.style.color = "white";          // ✅ White color
+  snow.style.textShadow = "0 0 2px white"; // optional subtle glow
 
-  // **Make snowflake clickable**
-  snow.style.pointerEvents = "auto"; // IMPORTANT: your container has pointerEvents: none
+   snow.style.pointerEvents = "auto"; 
   snow.addEventListener('click', () => {
-    sammy.currentTime = 0; // rewind if needed
     sammy.play();
-    snow.remove(); // optional: remove on click
   });
-
+  
   snowContainer.appendChild(snow);
 
   let y = -30;
@@ -28,7 +34,7 @@ function createSnowflake() {
   function fall() {
     y += speed;
     snow.style.top = y + "px";
-    snow.style.transform = `rotate(${y * 2}deg)`;
+    snow.style.transform = rotate(${y * 2}deg);
 
     if (y < window.innerHeight) {
       requestAnimationFrame(fall);
@@ -39,3 +45,11 @@ function createSnowflake() {
 
   fall();
 }
+
+setInterval(createSnowflake, 500);
+
+snowContainer.forEach(flake => {
+  flake.addEventListener('click', () => {
+    sammy.play();
+  });
+});
