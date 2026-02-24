@@ -1,5 +1,5 @@
 const overlay = document.getElementById("overlay");
-const mainContainer = document.querySelector("container");
+const mainContainer = document.querySelector(".container");
 const bgmusic = document.getElementById("bgmusic");
 // --- CLICK OVERLAY ---
 overlay.addEventListener("click", () => {
