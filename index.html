@@ -140,28 +140,31 @@
     // Halved snow frequency
     setInterval(createSnowflake, 422); // was 211 before
 
-    // Music Button
-    const music = document.getElementById("bgmusic");
-    const btn = document.getElementById("musicBtn");
+    <script>
+const music = document.getElementById("bgmusic");
+const btn = document.getElementById("musicBtn");
 
-    // Try to autoplay music
-    music.volume = 0.3;
-    music.play().catch(() => {
-      console.log("Autoplay blocked; click button to start music");
-      btn.textContent = "▶";
-    });
+// Attempt to autoplay on page load
+music.volume = 0.3;
 
-    // Button toggles play/pause
-    btn.addEventListener("click", () => {
-      if (music.paused) {
-        music.play();
-        btn.textContent = "⏸";
-      } else {
-        music.pause();
-        btn.textContent = "▶";
-      }
-    });
-  </script>
+music.play().then(() => {
+  // Autoplay succeeded
+  btn.textContent = "⏸";
+}).catch(() => {
+  // Autoplay blocked, must click to play
+  btn.textContent = "▶";
+});
 
+// Toggle play/pause on button click
+btn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    btn.textContent = "⏸";
+  } else {
+    music.pause();
+    btn.textContent = "▶";
+  }
+});
+</script>
 </body>
 </html>
