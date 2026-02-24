@@ -3,6 +3,12 @@
 <head>
   <title>Epstein Portal</title>
   <link rel="icon" href="favicon.webp" type="image/webp">
+  <meta property="og:title" content="Epstein Portal">
+  <meta property="og:description" content="Jeffrini Epstini">
+  <meta property="og:image" content="https://morisot67.com/sahur.webp">
+  <meta property="og:url" content="https://morisot67.com/">
+  <meta property="og:type" content="website">
+
   <style>
     body {
       margin: 0;
@@ -12,6 +18,7 @@
       align-items: center;
       background: #111;
       font-family: Arial, sans-serif;
+      overflow: hidden;
     }
 
     .container {
@@ -33,49 +40,117 @@
       margin-top: 15px;
       opacity: 0.8;
     }
-    
-    .epstein {
-  width: 367px;
-  animation: rgbGlow 3s linear infinite;
-}
 
-@keyframes rgbGlow {
-  0%   { filter: drop-shadow(0 0 20px red); }
-  33%  { filter: drop-shadow(0 0 20px lime); }
-  66%  { filter: drop-shadow(0 0 20px blue); }
-  100% { filter: drop-shadow(0 0 20px red); }
-}
+    .epstein {
+      width: 367px;
+      animation: rgbGlow 3s linear infinite;
+    }
+
+    @keyframes rgbGlow {
+      0%   { filter: drop-shadow(0 0 20px red); }
+      33%  { filter: drop-shadow(0 0 20px lime); }
+      66%  { filter: drop-shadow(0 0 20px blue); }
+      100% { filter: drop-shadow(0 0 20px red); }
+    }
+
+    /* Music Button */
+    #musicBtn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 10000;
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+
+    #musicBtn:hover {
+      text-shadow: 0 0 10px cyan, 0 0 20px magenta, 0 0 30px yellow;
+    }
   </style>
-  <meta property="og:title" content="Epstein Portal">
-<meta property="og:description" content="Jeffrini Epstini">
-<meta property="og:image" content="https://morisot67.com/sahur.webp">
-<meta property="og:url" content="https://morisot67.com/">
-<meta property="og:type" content="website">
 </head>
 <body>
-<audio id="bgmusic" loop>
-  <source src="https://static.wikia.nocookie.net/stealabr/images/b/b3/DefaultSoundtrackDay.mp3" type="audio/mpeg">
-</audio>
-  <button id="musicBtn" style="
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 10000;
-    background: transparent;
-    border: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-">
-  ▶
-</button>
-<a href="https://0930120a.index-education.net/pronote/eleve.html?identifiant=4rKeQr5WtDKskbPk" class="container">
-  <img src="sahur.webp" alt="epstein blud" class="shadowfilter epstein"/>
-  <p>Click to continue</p>
-</a>
 
-<script src="music.js"></script>
-<script src="shake.js"></script>
-<script src="snow.js"></script>
+  <!-- Background Music -->
+  <audio id="bgmusic" loop>
+    <source src="https://static.wikia.nocookie.net/stealabr/images/b/b3/DefaultSoundtrackDay.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <button id="musicBtn">▶</button>
+
+  <!-- Main Portal Link -->
+  <a href="https://0930120a.index-education.net/pronote/eleve.html?identifiant=4rKeQr5WtDKskbPk" class="container">
+    <img src="sahur.webp" alt="epstein blud" class="shadowfilter epstein"/>
+    <p>Click to continue</p>
+  </a>
+
+  <!-- JS for Shake / Snow / Music -->
+  <script src="shake.js"></script>
+
+  <script>
+    // White "67" Snow
+    const snowContainer = document.createElement("div");
+    snowContainer.style.position = "fixed";
+    snowContainer.style.top = "0";
+    snowContainer.style.left = "0";
+    snowContainer.style.width = "100%";
+    snowContainer.style.height = "100%";
+    snowContainer.style.pointerEvents = "none";
+    snowContainer.style.zIndex = "9999";
+    document.body.appendChild(snowContainer);
+
+    function createSnowflake() {
+      const snow = document.createElement("div");
+      snow.textContent = "67";
+      snow.style.position = "absolute";
+      snow.style.top = "-2em";
+      snow.style.left = Math.random() * window.innerWidth + "px";
+      snow.style.fontSize = Math.random() * 24 + 12 + "px";
+      snow.style.opacity = Math.random();
+      snow.style.color = "white";
+      snow.style.textShadow = "0 0 2px white";
+
+      snowContainer.appendChild(snow);
+
+      let y = -30;
+      const speed = Math.random() * 2 + 1;
+
+      function fall() {
+        y += speed;
+        snow.style.top = y + "px";
+        snow.style.transform = `rotate(${y * 2}deg)`;
+
+        if (y < window.innerHeight) {
+          requestAnimationFrame(fall);
+        } else {
+          snow.remove();
+        }
+      }
+
+      fall();
+    }
+
+    // Halved snow frequency (half as many snowflakes)
+    setInterval(createSnowflake, 422); // was 211 before
+
+    // Music Button
+    const music = document.getElementById("bgmusic");
+    const btn = document.getElementById("musicBtn");
+
+    btn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "⏸";
+      } else {
+        music.pause();
+        btn.textContent = "▶";
+      }
+    });
+  </script>
+
+  <script src="snow.js"></script>
 </body>
 </html>
