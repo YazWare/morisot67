@@ -21,7 +21,7 @@ function createSnowflake() {
   snow.style.color = "white";          // ✅ White color
   snow.style.textShadow = "0 0 2px white"; // optional subtle glow
 
-  flake.addEventListener('click', () => {
+snow.addEventListener('click', () => {
   const sound = new Audio('snow-sound.mp3');
   sound.play();
 });
