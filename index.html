@@ -13,6 +13,21 @@
       background: #111;
       font-family: Arial, sans-serif;
     }
+    
+    #bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    pointer-events: none;
+    display: none;
+    }
     * {
   cursor: url('bat.png') 5 5, auto !important;
 }
@@ -99,6 +114,7 @@
     <img src="sahur.webp" alt="epstein blud" class="shadowfilter epstein"/>
     <p>Click to continue</p>
   </a>
+  <img id="sab" src="sab.jpg" alt="sab"/>
     <script src="tung.js"></script>
   <script src="overlay.js"></script>
   <script src="shake.js"></script>
